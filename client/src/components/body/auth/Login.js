@@ -28,6 +28,7 @@ function Login() {
             const res = await axios.post('/user/login', {email, password})
             setUser({...user, err: '', success: res.data.msg})
 
+            // Local Storage 
             localStorage.setItem('firstLogin', true)
 
         } catch (err) {
