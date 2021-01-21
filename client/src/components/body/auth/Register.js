@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { showErrMsg, showSuccessMsg } from '../../utils/notification/Notification'
+import { isEmpty, isEmail, isLength, isMatch } from '../../utils/validation/Validation'
 
 
 const initialState = {
@@ -26,13 +27,24 @@ function Register() {
 
     const handleSubmit = async e => {
         e.preventDefault()
+        if(isEmpty(name) || isEmpty(password))
+                return setUser({...user, err: "Please fill in all fields.", success: ''})
+
+        if(!isEmail(email))
+            return setUser({...user, err: "Invalid emails.", success: ''})
+
+        if(isLength(password))
+            return setUser({...user, err: "Password must be at least 6 characters.", success: ''})
+        
+        if(!isMatch(password, cf_password))
+            return setUser({...user, err: "Password did not match.", success: ''})
+
         try {
-            const res = await axios.post('/user/login', {email, password})
+            const res = await axios.post('/user/register', {
+                name, email, password
+            })
+
             setUser({...user, err: '', success: res.data.msg})
-
-            // Local Storage 
-            localStorage.setItem('firstLogin', true)
-
         } catch (err) {
             err.response.data.msg && 
             setUser({...user, err: err.response.data.msg, success: ''})
@@ -67,7 +79,7 @@ function Register() {
 
                 <div>
                     <label htmlFor="cf_password">Confirm password</label>
-                    <input type="cf_password" placeholder="Confirm password" id="cf_password"
+                    <input type="password" placeholder="Confirm password" id="cf_password"
                     value={cf_password} name="cf_password" onChange={handleChangeInput} />
                 </div>
 

@@ -55,17 +55,18 @@ function Login() {
                     <input type="text" placeholder="Enter e-mail address" id="email"
                     value={email} name="email" onChange={handleChangeInput} />
                 </div>
+
                 <div>
                     <label htmlFor="password">Password</label>
                     <input type="password" placeholder="Enter password" id="password"
                     value={password} name="password" onChange={handleChangeInput} />
                 </div>
+
                 <div className="row">
                     <button type="submit">Login</button>
                     <Link to="/forgot_password">Forgot your password?</Link>
-                </div>
+                </div>    
             </form>
-
             <p> New Customer?</p> <Link to="/register">Sign up</Link>
         </div>
     )

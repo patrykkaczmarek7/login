@@ -22,9 +22,9 @@ const userCtrl = {
             const user = await Users.findOne({email})
             if(user) return res.status(400).json({msg: "This email already exists!"})
 
-            // Password more than 8 characters
-            if(password.length < 8)
-                return res.status(400).json({msg: "The password must have more than 8 characters."})
+            // Password more than 6 characters
+            if(password.length < 6)
+                return res.status(400).json({msg: "The password must have more than 6 characters."})
 
             // Password hashing by bcrypt    
             const passwordHash = await bcrypt.hash(password, 12)
