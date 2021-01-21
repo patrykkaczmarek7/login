@@ -8,7 +8,7 @@ cloudinary.config({
 })
 
 
-// Upload Avatar
+
 const uploadCtrl = {
     uploadAvatar: (req, res) => {
         try {

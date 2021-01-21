@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+import React, {useState} from 'react'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { showErrMsg, showSuccessMsg } from '../../utils/notification/Notification'
-import { isEmpty, isEmail, isLength, isMatch } from '../../utils/validation/Validation'
+import {showErrMsg, showSuccessMsg} from '../../utils/notification/Notification'
+import {isEmpty, isEmail, isLength, isMatch} from '../../utils/validation/Validation'
 
 
 const initialState = {
@@ -19,11 +19,11 @@ function Register() {
 
     const {name, email, password,cf_password, err, success} = user
 
-    // Typing values
     const handleChangeInput = e => {
         const {name, value} = e.target
         setUser({...user, [name]:value, err: '', success: ''})
     }
+
 
     const handleSubmit = async e => {
         e.preventDefault()
@@ -53,10 +53,9 @@ function Register() {
 
     return (
         <div className="login_page">
-            <h2>Register</h2> 
+            <h2>Register</h2>
             {err && showErrMsg(err)}
             {success && showSuccessMsg(success)}
-            
 
             <form onSubmit={handleSubmit}>
                 <div>
@@ -66,8 +65,8 @@ function Register() {
                 </div>
 
                 <div>
-                    <label htmlFor="email">E-mail Address</label>
-                    <input type="text" placeholder="Enter e-mail address" id="email"
+                    <label htmlFor="email">Email Address</label>
+                    <input type="text" placeholder="Enter email address" id="email"
                     value={email} name="email" onChange={handleChangeInput} />
                 </div>
 
@@ -78,7 +77,7 @@ function Register() {
                 </div>
 
                 <div>
-                    <label htmlFor="cf_password">Confirm password</label>
+                    <label htmlFor="cf_password">Confirm Password</label>
                     <input type="password" placeholder="Confirm password" id="cf_password"
                     value={cf_password} name="cf_password" onChange={handleChangeInput} />
                 </div>
@@ -86,10 +85,9 @@ function Register() {
                 <div className="row">
                     <button type="submit">Register</button>
                 </div>
-
             </form>
 
-            <p> Have you got already an account?</p> <Link to="/login">Sign ip</Link>
+            <p>Already an account? <Link to="/login">Login</Link></p>
         </div>
     )
 }

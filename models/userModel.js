@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-// UserSchema - user object
+
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar: {
         type: String,
-        default: "https://res.cloudinary.com/devmaster7/image/upload/v1610983408/user_kiirrl.png"
+        default: "https://res.cloudinary.com/devatchannel/image/upload/v1602752402/avatar/avatar_cugq40.png"
     }
 }, {
     timestamps: true

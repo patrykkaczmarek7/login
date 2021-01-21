@@ -15,16 +15,23 @@ router.post('/forgot', userCtrl.forgotPassword)
 
 router.post('/reset', auth, userCtrl.resetPassword)
 
-router.post('/infor', auth, userCtrl.getUserInfor)
+router.get('/infor', auth, userCtrl.getUserInfor)
 
-router.post('/all_infor', auth, authAdmin, userCtrl.getUsersAllInfor)
+router.get('/all_infor', auth, authAdmin, userCtrl.getUsersAllInfor)
 
-router.post('/logout', userCtrl.logout)
+router.get('/logout', userCtrl.logout)
 
 router.patch('/update', auth, userCtrl.updateUser)
 
 router.patch('/update_role/:id', auth, authAdmin, userCtrl.updateUsersRole)
 
 router.delete('/delete/:id', auth, authAdmin, userCtrl.deleteUser)
+
+
+// Social Login
+router.post('/google_login', userCtrl.googleLogin)
+
+router.post('/facebook_login', userCtrl.facebookLogin)
+
 
 module.exports = router

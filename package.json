@@ -1,38 +1,37 @@
 {
-  "name": "login",
+  "name": "full-auth",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon server.js",
-    "server": "nodemon server.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/patrykkaczmarek7/login.git"
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "cd client && npm run start",
+    "server-install": "npm install",
+    "client-install": "cd client && npm install",
+    "install-all": "concurrently \"npm run server-install\"  \"npm run client-install\"",
+    "dev": "concurrently \"npm run server\"  \"npm run client\"",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/patrykkaczmarek7/login/issues"
-  },
-  "homepage": "https://github.com/patrykkaczmarek7/login#readme",
   "dependencies": {
     "bcrypt": "^5.0.0",
     "cloudinary": "^1.23.0",
+    "concurrently": "^5.3.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-fileupload": "^1.2.1",
-    "googleapis": "^67.0.0",
+    "express-fileupload": "^1.2.0",
+    "googleapis": "^61.0.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.12",
+    "mongoose": "^5.10.9",
     "node-fetch": "^2.6.1",
-    "nodemailer": "^6.4.17"
+    "nodemailer": "^6.4.14"
   },
   "devDependencies": {
-    "nodemon": "^2.0.7"
+    "nodemon": "^2.0.5"
   }
 }
