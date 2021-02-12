@@ -1,8 +1,3 @@
-## Demo: https://devat-full-auth.herokuapp.com/
-
-## Author: Dev AT
-## Youtube tutorials: https://youtu.be/npsi7ZkjvQo
-
 ## Install dependencies for server 
 ### `npm install`
 
@@ -23,3 +18,5 @@
 ### `npm run client`
 
 ### Server runs on http://localhost:5000 and client on http://localhost:3000
+
+## Credits: Dev AT
